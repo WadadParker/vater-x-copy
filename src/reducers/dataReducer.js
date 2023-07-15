@@ -17,6 +17,7 @@ export const dataReducer = (state, { type, payload }) => {
   switch (type) {
 
     case GET_ALL_DRIVERS:
+      console.log("the dispatch is getting called with the payload",payload);
       return {...state,drivers:payload};
 
     case SEARCH_DRIVERS:
