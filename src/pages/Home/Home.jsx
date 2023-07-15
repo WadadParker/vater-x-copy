@@ -13,7 +13,7 @@ export const Home = () => {
   const highLightCard=(id)=> isActive===id?true:false;
   const clickHandler=()=>isActive==="1"?navigate("/drivers"):navigate("/cabs");
 
-  useEffect(()=>{getDrivers();getAllCabs()},[]);
+  // useEffect(()=>{getDrivers();getAllCabs()},[]);
   return (
     <div className={styles[`home-container`]}>
       <Header />
