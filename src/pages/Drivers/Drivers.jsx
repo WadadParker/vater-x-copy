@@ -18,7 +18,7 @@ export const Drivers = () => {
 
   const { SEARCH_DRIVERS } = actionTypes;
 
-  useEffect(()=>{getAllCabs();getDrivers()},[]);
+  // useEffect(()=>{getAllCabs();getDrivers()},[]);
 
   return (
     <div className={styles[`driver-container`]}>
