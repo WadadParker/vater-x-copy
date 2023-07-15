@@ -43,7 +43,7 @@ export const DataProvider = ({ children }) => {
     try {
       const response = await addCab(cabDetails);
       if (response.status === 200) {
-        toast.success("New driver added successfully!");
+        toast.success("New Cab added successfully!");
         getAllCabs()
       }
     } catch (error) {
@@ -67,7 +67,7 @@ export const DataProvider = ({ children }) => {
     try {
       const response = await editCab(cabId,cabDetails);
       if (response.status === 200) {
-        toast.success("New driver added successfully!");
+        toast.success("Cab updated!");
         getAllCabs()
       }
     } catch (error) {
@@ -122,7 +122,6 @@ export const DataProvider = ({ children }) => {
   {
     try {
       const response= await deleteCab(driverId);
-      console.log(response);
       if(response.status===200)
       {
         getAllCabs();
@@ -138,7 +137,6 @@ export const DataProvider = ({ children }) => {
   {
     try {
       const response= await deleteDriver(driverId);
-      console.log(response);
       if(response.status===200)
       {
         getDrivers()

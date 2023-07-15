@@ -1,16 +1,19 @@
 import styles from "./home.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Header } from "../../components/Header/Header";
+import { useData } from "../../contexts/DataContext";
 
 export const Home = () => {
-
+  const {getDrivers,getAllCabs}=useData();
   const navigate=useNavigate();
   const [isActive,setIsActive]=useState(false);
 
   const highLightCard=(id)=> isActive===id?true:false;
   const clickHandler=()=>isActive==="1"?navigate("/drivers"):navigate("/cabs");
+
+  useEffect(()=>{getDrivers();getAllCabs()},[]);
   return (
     <div className={styles[`home-container`]}>
       <Header />

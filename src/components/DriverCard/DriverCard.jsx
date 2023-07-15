@@ -44,6 +44,7 @@ export const DriverCard = ({ driver }) => {
     setDriverAssignedCab(null)
   }
 
+  console.log(driverAssignedCab);
 
   return (
     <div className={styles[`driver-card-container`]}>
