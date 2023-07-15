@@ -32,7 +32,7 @@ export const DataProvider = ({ children }) => {
       const response = await addDriver(driverDetails);
       if (response.status === 200) {
         toast.success("New driver added successfully!");
-        getAllCabs()
+        getDrivers()
       }
     } catch (error) {
       console.log(error);
@@ -44,7 +44,7 @@ export const DataProvider = ({ children }) => {
       const response = await addCab(cabDetails);
       if (response.status === 200) {
         toast.success("New driver added successfully!");
-        getDrivers()
+        getAllCabs()
       }
     } catch (error) {
       console.log(error);
@@ -122,9 +122,10 @@ export const DataProvider = ({ children }) => {
   {
     try {
       const response= await deleteCab(driverId);
+      console.log(response);
       if(response.status===200)
       {
-        dispatch({type:GET_ALL_CABS,payload:response.data.data})
+        getAllCabs();
       }
     }
     catch(error)
@@ -137,9 +138,9 @@ export const DataProvider = ({ children }) => {
   {
     try {
       const response= await deleteDriver(driverId);
+      console.log(response);
       if(response.status===200)
       {
-        dispatch({type:GET_ALL_CABS,payload:response.data.data})
         getDrivers()
       }
     }
@@ -152,7 +153,6 @@ export const DataProvider = ({ children }) => {
   const assignedCab = async(driverId,cabId) => {
     try {
       const response= await assignCab(driverId,{assigned_cab:cabId});
-      console.log(response, "assing cab response is undefined");
         getDrivers()
         getAllCabs()
     }
@@ -164,7 +164,6 @@ export const DataProvider = ({ children }) => {
   const removedCab = async(driverId,cabId) => {
     try {
       const response= await removeCab(driverId,cabId);
-      console.log(response,"remove cab response is works");
         getAllCabs()
         getDrivers()
     }
