@@ -17,9 +17,9 @@ export const DataProvider = ({ children }) => {
   const { GET_ALL_DRIVERS, GET_ALL_CABS, AUTHENTICATION, GUEST_LOGIN } = actionTypes;
 
   const getDrivers = async () => {
-    console.log("This function is getiing called")
     try {
       const response = await getDriverslistfromAPI();
+      console.log(response,response.data,response.data.data);
       if (response.status === 200) {
         dispatch({ type: GET_ALL_DRIVERS, payload: response.data.data });
         console.log("the api is getting called".response.data.data);
